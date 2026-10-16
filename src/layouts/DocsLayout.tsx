@@ -73,16 +73,7 @@ export function DocsLayout() {
         </main>
 
         <aside className="hidden xl:block sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pl-2">
-          <TableOfContents
-            headings={[
-              { id: 'overview', title: 'Overview', level: 2 },
-              { id: 'installation', title: 'Installation', level: 2 },
-              { id: 'usage', title: 'Usage Example', level: 2 },
-              { id: 'variants', title: 'Component Variants', level: 3 },
-              { id: 'props', title: 'API Reference', level: 2 },
-              { id: 'accessibility', title: 'Accessibility (a11y)', level: 2 },
-            ]}
-          />
+          <TableOfContents />
         </aside>
       </div>
 

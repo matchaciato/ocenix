@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
 import { ArrowUp, Link2 } from 'lucide-react'
 import { useActiveHeading } from '@/hooks/use-active-heading'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
@@ -8,10 +10,37 @@ export interface TableOfContentsProps {
   headings?: TableOfContentsItem[]
 }
 
-export function TableOfContents({ headings = [] }: TableOfContentsProps) {
+export function TableOfContents({ headings: propHeadings }: TableOfContentsProps) {
+  const location = useLocation()
+  const [discoveredHeadings, setDiscoveredHeadings] = useState<TableOfContentsItem[]>([])
+  const { copyToClipboard } = useCopyToClipboard()
+
+  useEffect(() => {
+    if (propHeadings && propHeadings.length > 0) return
+
+    const timer = setTimeout(() => {
+      const elements = Array.from(
+        document.querySelectorAll('#docs-content h2, #docs-content h3'),
+      )
+
+      const items: TableOfContentsItem[] = elements
+        .filter((el) => Boolean(el.id))
+        .map((el) => ({
+          id: el.id,
+          title: (el.textContent || '').replace(/#/g, '').trim(),
+          level: el.tagName === 'H2' ? 2 : 3,
+        }))
+
+      setDiscoveredHeadings(items)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [location.pathname, propHeadings])
+
+  const headings =
+    propHeadings && propHeadings.length > 0 ? propHeadings : discoveredHeadings
   const headingIds = headings.map((h) => h.id)
   const activeId = useActiveHeading(headingIds)
-  const { copyToClipboard } = useCopyToClipboard()
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -31,7 +60,7 @@ export function TableOfContents({ headings = [] }: TableOfContentsProps) {
         On this page
       </p>
 
-      <nav className="flex flex-col space-y-2 border-l border-border pl-3">
+      <nav className="flex flex-col space-y-1.5 border-l border-border pl-3">
         {headings.map((item) => {
           const isActive = activeId === item.id
 
@@ -41,7 +70,7 @@ export function TableOfContents({ headings = [] }: TableOfContentsProps) {
               href={`#${item.id}`}
               className={cn(
                 'text-xs transition-colors hover:text-foreground line-clamp-1 py-0.5',
-                item.level === 3 && 'pl-3',
+                item.level === 3 && 'pl-3 text-[11px]',
                 isActive
                   ? 'font-medium text-foreground -ml-[13px] border-l-2 border-primary pl-[11px]'
                   : 'text-muted-foreground',
