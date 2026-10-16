@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router'
 import { docsConfig } from '@/config/docs-nav.config'
 import { Header } from '@/components/shared/Header'
 import { Footer } from '@/components/shared/Footer'
 import { MobileNav } from '@/components/shared/MobileNav'
+import { CommandMenu } from '@/components/shared/CommandMenu'
 import { Breadcrumbs } from '@/components/docs/Breadcrumbs'
 import { DocsPagination } from '@/components/docs/DocsPagination'
 import { TableOfContents } from '@/components/docs/TableOfContents'
@@ -12,17 +13,36 @@ import { cn } from '@/lib/utils'
 
 export function DocsLayout() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault()
+        setIsSearchOpen((prev) => !prev)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   return (
-    <div className="relative min-h-dvh bg-background text-foreground flex flex-col">
+    <div className="relative min-h-screen bg-background text-foreground flex flex-col">
       <Header
         variant="docs"
         onOpenMobileNav={() => setIsMobileNavOpen(true)}
+        onOpenSearch={() => setIsSearchOpen(true)}
       />
 
       <MobileNav
         isOpen={isMobileNavOpen}
         onClose={() => setIsMobileNavOpen(false)}
+      />
+
+      <CommandMenu
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
       />
 
       <div className="container mx-auto max-w-7xl flex-1 items-start px-4 sm:px-8 md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)_220px] gap-6 lg:gap-10">

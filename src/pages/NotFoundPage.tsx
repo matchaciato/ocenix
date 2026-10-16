@@ -1,8 +1,13 @@
 import { Link } from 'react-router'
 import { BookOpen, Home } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { useSEO } from '@/hooks/use-seo'
 
 export function NotFoundPage() {
+  useSEO({
+    title: '404 – Halaman Tidak Ditemukan',
+    description: 'Halaman yang Anda tuju tidak ditemukan atau telah dipindahkan.',
+  })
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 text-center">
       <div className="space-y-4 max-w-md">

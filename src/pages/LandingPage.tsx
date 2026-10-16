@@ -26,8 +26,14 @@ import { BorderBeam } from '@/components/magic/BorderBeam'
 import { ShimmerButton } from '@/components/magic/ShimmerButton'
 import { Marquee } from '@/components/magic/Marquee'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
+import { useSEO } from '@/hooks/use-seo'
+import { siteConfig } from '@/config/site.config'
 
 export function LandingPage() {
+  useSEO({
+    title: siteConfig.name,
+    description: siteConfig.description,
+  })
   const [inputValue, setInputValue] = useState('')
   const [switchChecked, setSwitchChecked] = useState(true)
   const [btnLoading, setBtnLoading] = useState(false)

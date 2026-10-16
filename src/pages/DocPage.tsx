@@ -11,6 +11,7 @@ import { Steps, StepItem } from '@/components/docs/Steps'
 import { MarkdownRenderer } from '@/components/docs/MarkdownRenderer'
 import { componentRegistry } from '@/components/docs/component-registry'
 import { docsContentMap } from '@/content/docs-content'
+import { useSEO } from '@/hooks/use-seo'
 
 export function DocPage() {
   const location = useLocation()
@@ -30,6 +31,11 @@ export function DocPage() {
     articleDoc?.description ||
     'Dokumentasi teknis Ocenix UI.'
   const badge = currentNav?.badge || articleDoc?.badge
+
+  useSEO({
+    title,
+    description,
+  })
 
   return (
     <div className="space-y-8">

@@ -3,8 +3,13 @@ import { ArrowRight, LayoutDashboard, Sparkles, ShieldCheck } from 'lucide-react
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
+import { useSEO } from '@/hooks/use-seo'
 
 export function ShowcasePage() {
+  useSEO({
+    title: 'Showcase & Examples',
+    description: 'Koleksi template dan blok antarmuka siap pakai yang dibangun menggunakan primitif Ocenix UI.',
+  })
   const templates = [
     {
       title: 'Analytics Dashboard',

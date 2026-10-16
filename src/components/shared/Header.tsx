@@ -74,17 +74,15 @@ export function Header({
         )}
 
         <div className="flex items-center gap-2">
-          {variant === 'docs' ? (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onOpenSearch}
-              className="md:hidden text-muted-foreground"
-              aria-label="Search documentation"
-            >
-              <Search className="h-4 w-4" />
-            </Button>
-          ) : null}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onOpenSearch}
+            className={cn('text-muted-foreground hover:text-foreground', variant === 'docs' && 'md:hidden')}
+            aria-label="Search documentation"
+          >
+            <Search className="h-4 w-4" />
+          </Button>
 
           <a
             href={siteConfig.links.github}
