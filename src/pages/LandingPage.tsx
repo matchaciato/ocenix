@@ -22,6 +22,9 @@ import {
 import { Input } from '@/components/ui/Input'
 import { Switch } from '@/components/ui/Switch'
 import { BentoCard, BentoGrid } from '@/components/magic/BentoGrid'
+import { BorderBeam } from '@/components/magic/BorderBeam'
+import { ShimmerButton } from '@/components/magic/ShimmerButton'
+import { Marquee } from '@/components/magic/Marquee'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 
 export function LandingPage() {
@@ -31,6 +34,16 @@ export function LandingPage() {
   const { isCopied, copyToClipboard } = useCopyToClipboard()
 
   const installCommand = 'pnpm add ocenix-ui'
+  const techLogos = [
+    'React 19',
+    'Tailwind CSS v4',
+    'Radix Primitives',
+    'TypeScript',
+    'Magic UI Motion',
+    'Zero-FOUC Dark Mode',
+    'WAI-ARIA Accessibility',
+    'Markdown Engine',
+  ]
 
   return (
     <>
@@ -38,7 +51,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-5xl px-4 sm:px-8 text-center flex flex-col items-center">
           <Badge variant="secondary" className="mb-6 px-3 py-1 gap-1.5 text-xs">
             <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-            Dual Layout &amp; Responsive Navigation Active
+            Complete UI Kit Ecosystem &amp; Magic Motion
           </Badge>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-3xl">
@@ -56,10 +69,10 @@ export function LandingPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link to="/docs/introduction">
-              <Button size="lg" className="gap-2">
-                Explore Documentation
+              <ShimmerButton className="gap-2 px-5 py-3 text-sm">
+                <span>Explore Documentation</span>
                 <ArrowRight className="h-4 w-4" />
-              </Button>
+              </ShimmerButton>
             </Link>
             <Button
               variant="outline"
@@ -74,10 +87,24 @@ export function LandingPage() {
         </div>
       </section>
 
+      <div className="border-b border-border bg-card/50 py-3 overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:30s]">
+          {techLogos.map((tech) => (
+            <div
+              key={tech}
+              className="rounded-lg border border-border bg-background/80 px-4 py-1.5 font-mono text-xs font-medium text-muted-foreground flex items-center gap-2"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {tech}
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
       <section className="py-16 container mx-auto max-w-7xl px-4 sm:px-8">
         <div className="mb-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            Design Token System Verification
+            Design Token System &amp; Primitives
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
             Semantic tokens yang terintegrasi penuh dengan Tailwind v4 dan Dark Mode Engine tanpa FOUC.
@@ -186,13 +213,14 @@ export function LandingPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="relative overflow-hidden">
+            <BorderBeam size={120} duration={10} />
             <CardHeader className="pb-3">
               <CardTitle className="text-base flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary" />
-                Badges &amp; Status
+                Border Beam Effect
               </CardTitle>
-              <CardDescription>Pill indicators for state</CardDescription>
+              <CardDescription>Pill indicators &amp; glow</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
               <Badge variant="default">Default</Badge>
