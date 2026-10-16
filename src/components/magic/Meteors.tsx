@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useMemo } from 'react'
 import { cn } from '@/lib/utils'
 
 export interface MeteorsProps {
@@ -7,16 +7,13 @@ export interface MeteorsProps {
 }
 
 export function Meteors({ number = 20, className }: MeteorsProps) {
-  const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>([])
-
-  useEffect(() => {
-    const styles = Array.from({ length: number }).map(() => ({
+  const meteorStyles = useMemo(() => {
+    return Array.from({ length: number }).map((_, i) => ({
       top: 0,
-      left: `${Math.floor(Math.random() * 800) - 400}px`,
-      animationDelay: `${Math.random() * 1 + 0.2}s`,
-      animationDuration: `${Math.floor(Math.random() * 8 + 2)}s`,
+      left: `${(i * 47) % 800 - 400}px`,
+      animationDelay: `${((i * 13) % 20) / 10 + 0.2}s`,
+      animationDuration: `${((i * 17) % 6) + 3}s`,
     }))
-    setMeteorStyles(styles)
   }, [number])
 
   return (

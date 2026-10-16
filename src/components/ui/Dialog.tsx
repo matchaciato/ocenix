@@ -75,9 +75,11 @@ export interface DialogContentProps extends HTMLAttributes<HTMLDivElement> {
 export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   ({ className, children, ...props }, ref) => {
     const context = useContext(DialogContext)
-    if (!context || !context.isOpen) return null
+    const isOpen = Boolean(context?.isOpen)
 
     useEffect(() => {
+      if (!isOpen || !context) return
+
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
           context.setIsOpen(false)
@@ -89,7 +91,9 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
         document.body.style.overflow = ''
         window.removeEventListener('keydown', handleKeyDown)
       }
-    }, [context])
+    }, [isOpen, context])
+
+    if (!context || !context.isOpen) return null
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">

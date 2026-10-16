@@ -19,7 +19,7 @@ export interface CommandMenuProps {
   onClose: () => void
 }
 
-export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
+function CommandMenuContent({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -30,15 +30,14 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
   const results = search(query)
 
   useEffect(() => {
-    if (isOpen) {
-      setQuery('')
-      setSelectedIndex(0)
-      setTimeout(() => inputRef.current?.focus(), 50)
-      document.body.style.overflow = 'hidden'
-    } else {
+    document.body.style.overflow = 'hidden'
+    const timer = setTimeout(() => inputRef.current?.focus(), 50)
+
+    return () => {
       document.body.style.overflow = ''
+      clearTimeout(timer)
     }
-  }, [isOpen])
+  }, [])
 
   const handleSelect = (item: SearchItem) => {
     onClose()
@@ -62,8 +61,6 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       onClose()
     }
   }
-
-  if (!isOpen) return null
 
   const groupedResults = results.reduce<Record<string, SearchItem[]>>((acc, item) => {
     if (!acc[item.category]) acc[item.category] = []
@@ -238,4 +235,10 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       </div>
     </div>
   )
+}
+
+export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
+  if (!isOpen) return null
+
+  return <CommandMenuContent onClose={onClose} />
 }

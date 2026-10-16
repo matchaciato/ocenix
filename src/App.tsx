@@ -6,12 +6,14 @@ import { DocPage } from '@/pages/DocPage'
 import { ShowcasePage } from '@/pages/ShowcasePage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { ScrollToTop } from '@/components/shared/ScrollToTop'
+import { ErrorBoundary } from '@/components/docs/ErrorBoundary'
 
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
+      <ErrorBoundary fallbackTitle="Terjadi kendala saat memuat halaman">
+        <Routes>
         <Route element={<LandingLayout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/showcase" element={<ShowcasePage />} />
@@ -25,6 +27,7 @@ export default function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </ErrorBoundary>
     </BrowserRouter>
   )
 }

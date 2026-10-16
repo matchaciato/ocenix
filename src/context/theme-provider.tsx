@@ -1,13 +1,6 @@
-import { createContext, useEffect, useMemo, useState } from 'react'
-import type { ResolvedTheme, Theme, ThemeContextValue, ThemeProviderProps } from '@/types/theme.types'
-
-const initialState: ThemeContextValue = {
-  theme: 'system',
-  resolvedTheme: 'light',
-  setTheme: () => null,
-}
-
-export const ThemeContext = createContext<ThemeContextValue>(initialState)
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { ThemeContext } from '@/context/theme-context'
+import type { ResolvedTheme, Theme, ThemeProviderProps } from '@/types/theme.types'
 
 function getStoredTheme(key: string, fallback: Theme): Theme {
   try {
@@ -15,7 +8,8 @@ function getStoredTheme(key: string, fallback: Theme): Theme {
     if (item === 'light' || item === 'dark' || item === 'system') {
       return item
     }
-  } catch {
+  } catch (e) {
+    void e
     return fallback
   }
   return fallback
@@ -24,7 +18,9 @@ function getStoredTheme(key: string, fallback: Theme): Theme {
 function setStoredTheme(key: string, theme: Theme): void {
   try {
     localStorage.setItem(key, theme)
-  } catch {}
+  } catch (e) {
+    void e
+  }
 }
 
 export function ThemeProvider({
@@ -66,10 +62,13 @@ export function ThemeProvider({
     }
   }, [resolvedTheme])
 
-  const setTheme = (newTheme: Theme) => {
-    setStoredTheme(storageKey, newTheme)
-    setThemeState(newTheme)
-  }
+  const setTheme = useCallback(
+    (newTheme: Theme) => {
+      setStoredTheme(storageKey, newTheme)
+      setThemeState(newTheme)
+    },
+    [storageKey],
+  )
 
   const value = useMemo(
     () => ({
@@ -77,7 +76,7 @@ export function ThemeProvider({
       resolvedTheme,
       setTheme,
     }),
-    [theme, resolvedTheme],
+    [theme, resolvedTheme, setTheme],
   )
 
   return (
