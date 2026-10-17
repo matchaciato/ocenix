@@ -18,25 +18,25 @@ const calloutConfig: Record<
 > = {
   note: {
     icon: Info,
-    containerClass: 'border-blue-500/30 bg-blue-500/5 text-blue-900 dark:text-blue-200',
-    iconClass: 'text-blue-500',
+    containerClass: 'border-info/30 bg-info/5 text-foreground',
+    iconClass: 'text-info',
     defaultTitle: 'Note',
   },
   tip: {
     icon: Lightbulb,
-    containerClass: 'border-emerald-500/30 bg-emerald-500/5 text-emerald-900 dark:text-emerald-200',
-    iconClass: 'text-emerald-500',
+    containerClass: 'border-success/30 bg-success/5 text-foreground',
+    iconClass: 'text-success',
     defaultTitle: 'Tip',
   },
   warning: {
     icon: AlertTriangle,
-    containerClass: 'border-amber-500/30 bg-amber-500/5 text-amber-900 dark:text-amber-200',
-    iconClass: 'text-amber-500',
+    containerClass: 'border-warning/30 bg-warning/5 text-foreground',
+    iconClass: 'text-warning',
     defaultTitle: 'Warning',
   },
   danger: {
     icon: AlertCircle,
-    containerClass: 'border-destructive/30 bg-destructive/5 text-destructive dark:text-red-300',
+    containerClass: 'border-destructive/30 bg-destructive/5 text-foreground',
     iconClass: 'text-destructive',
     defaultTitle: 'Important',
   },

@@ -415,6 +415,8 @@ if (searchInput) {
 <span class="ox-badge ox-badge-secondary">Secondary</span>
 <span class="ox-badge ox-badge-outline">Outline</span>
 <span class="ox-badge ox-badge-success">Success</span>
+<span class="ox-badge ox-badge-warning">Warning</span>
+<span class="ox-badge ox-badge-info">Info</span>
 <span class="ox-badge ox-badge-destructive">Destructive</span>`,
     css: `.ox-badge {
   display: inline-flex;
@@ -444,15 +446,27 @@ if (searchInput) {
 }
 
 .ox-badge-success {
-  background-color: #ecfdf5;
-  color: #047857;
-  border-color: #a7f3d0;
+  background-color: color-mix(in oklch, var(--success, #10b981) 15%, transparent);
+  color: var(--success, #059669);
+  border-color: color-mix(in oklch, var(--success, #10b981) 30%, transparent);
+}
+
+.ox-badge-warning {
+  background-color: color-mix(in oklch, var(--warning, #f59e0b) 15%, transparent);
+  color: var(--warning, #d97706);
+  border-color: color-mix(in oklch, var(--warning, #f59e0b) 30%, transparent);
+}
+
+.ox-badge-info {
+  background-color: color-mix(in oklch, var(--info, #3b82f6) 15%, transparent);
+  color: var(--info, #2563eb);
+  border-color: color-mix(in oklch, var(--info, #3b82f6) 30%, transparent);
 }
 
 .ox-badge-destructive {
-  background-color: #fef2f2;
-  color: #b91c1c;
-  border-color: #fecaca;
+  background-color: color-mix(in oklch, var(--destructive, #ef4444) 15%, transparent);
+  color: var(--destructive, #dc2626);
+  border-color: color-mix(in oklch, var(--destructive, #ef4444) 30%, transparent);
 }`,
     js: `document.querySelectorAll('.ox-badge[data-dismissible="true"]').forEach((badge) => {
   const closeBtn = badge.querySelector('.ox-badge-close');

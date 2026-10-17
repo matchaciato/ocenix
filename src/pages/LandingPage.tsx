@@ -131,22 +131,29 @@ export function LandingPage() {
               <div className="flex items-center justify-between text-xs">
                 <span>Background / Card</span>
                 <div className="flex gap-1.5">
-                  <div className="h-5 w-5 rounded border border-border bg-background" />
-                  <div className="h-5 w-5 rounded border border-border bg-card" />
+                  <div className="h-5 w-5 rounded border border-border bg-background" title="Background" />
+                  <div className="h-5 w-5 rounded border border-border bg-card" title="Card" />
                 </div>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span>Primary / Secondary</span>
                 <div className="flex gap-1.5">
-                  <div className="h-5 w-5 rounded border border-border bg-primary" />
-                  <div className="h-5 w-5 rounded border border-border bg-secondary" />
+                  <div className="h-5 w-5 rounded border border-border bg-primary" title="Primary" />
+                  <div className="h-5 w-5 rounded border border-border bg-secondary" title="Secondary" />
                 </div>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span>Muted / Destructive</span>
+                <span>Brand / Accent</span>
                 <div className="flex gap-1.5">
-                  <div className="h-5 w-5 rounded border border-border bg-muted" />
-                  <div className="h-5 w-5 rounded border border-border bg-destructive" />
+                  <div className="h-5 w-5 rounded border border-border bg-brand" title="Brand" />
+                  <div className="h-5 w-5 rounded border border-border bg-accent" title="Accent" />
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span>Success / Destructive</span>
+                <div className="flex gap-1.5">
+                  <div className="h-5 w-5 rounded border border-border bg-success" title="Success" />
+                  <div className="h-5 w-5 rounded border border-border bg-destructive" title="Destructive" />
                 </div>
               </div>
             </CardContent>
@@ -234,6 +241,8 @@ export function LandingPage() {
               <Badge variant="secondary">Secondary</Badge>
               <Badge variant="outline">Outline</Badge>
               <Badge variant="success">Success</Badge>
+              <Badge variant="warning">Warning</Badge>
+              <Badge variant="info">Info</Badge>
               <Badge variant="destructive">Error</Badge>
             </CardContent>
           </Card>

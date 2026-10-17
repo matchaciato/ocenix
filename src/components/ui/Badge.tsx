@@ -7,6 +7,8 @@ export type BadgeVariant =
   | 'outline'
   | 'destructive'
   | 'success'
+  | 'warning'
+  | 'info'
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant
@@ -22,7 +24,11 @@ const variantStyles: Record<BadgeVariant, string> = {
   destructive:
     'border-transparent bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/80',
   success:
-    'border-transparent bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30',
+    'bg-success/15 text-success border-success/30 hover:bg-success/25',
+  warning:
+    'bg-warning/15 text-warning border-warning/30 hover:bg-warning/25',
+  info:
+    'bg-info/15 text-info border-info/30 hover:bg-info/25',
 }
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(

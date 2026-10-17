@@ -159,19 +159,26 @@ Every component in Ocenix UI adheres to the following accessibility standards:
   },
   'tokens/colors': {
     title: 'Colors Palette',
-    description: 'Semantic neutral palettes, primary accents, and status indicators.',
+    description: 'Semantic OKLCH color palettes, brand accents, and status indicators.',
     content: `
-## Semantic Color System
+## Semantic OKLCH Color System
 
-Neutral zinc and slate color palettes deliver optimal readability and WCAG AA contrast ratios:
+Modern OKLCH color palettes deliver perceptual uniformity, wide color gamut accuracy, and optimal WCAG contrast:
 
-| Color | Light Variant | Dark Variant | Intended Role |
+| Token | Light Variant | Dark Variant | Intended Role |
 | :--- | :--- | :--- | :--- |
-| **Canvas** | #ffffff | #09090b | Main page background |
-| **Card** | #ffffff | #121215 | Elevated container surfaces |
-| **Primary** | #09090b | #fafafa | Primary action buttons |
-| **Border** | #e4e4e7 | #27272a | Component borders and input outlines |
-| **Destructive** | #ef4444 | #ef4444 | Error badges and destructive actions |
+| **Canvas** | \`oklch(0.985 0.002 90)\` | \`oklch(0.12 0.002 90)\` | Main page background |
+| **Card** | \`oklch(0.99 0.002 90)\` | \`oklch(0.16 0.003 90)\` | Elevated container surfaces |
+| **Primary** | \`oklch(0.145 0.003 90)\` | \`oklch(0.97 0.002 90)\` | Primary action buttons and prominent text |
+| **Secondary** | \`oklch(0.94 0.003 90)\` | \`oklch(0.22 0.003 90)\` | Secondary buttons and badge surfaces |
+| **Muted** | \`oklch(0.95 0.003 90)\` | \`oklch(0.2 0.003 90)\` | Subtle fills and inactive tab backgrounds |
+| **Accent** | \`oklch(0.92 0.004 90)\` | \`oklch(0.25 0.004 90)\` | Interactive hover and focus backgrounds |
+| **Border** | \`oklch(0.88 0.003 90)\` | \`oklch(1 0 0 / 8%)\` | Component outlines and dividers |
+| **Brand** | \`oklch(0.22 0.004 90)\` | \`oklch(0.85 0.008 90)\` | Brand accents and highlight elements |
+| **Destructive** | \`oklch(0.5 0.16 25)\` | \`oklch(0.65 0.18 25)\` | Critical actions and error indicators |
+| **Success** | \`oklch(0.5 0.1 150)\` | \`oklch(0.65 0.12 150)\` | Success badges and confirmations |
+| **Warning** | \`oklch(0.68 0.09 80)\` | \`oklch(0.75 0.1 80)\` | Warning banners and caution states |
+| **Info** | \`oklch(0.5 0.02 250)\` | \`oklch(0.65 0.02 250)\` | Informational callouts and tips |
 `,
   },
 }
