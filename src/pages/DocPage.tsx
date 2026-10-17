@@ -73,8 +73,10 @@ export function DocPage() {
             </h2>
             <ComponentPreview
               name={componentDemo.title}
-              code={componentDemo.code}
-              description={`Pratinjau interaktif komponen ${componentDemo.title}.`}
+              html={componentDemo.html}
+              css={componentDemo.css}
+              js={componentDemo.js}
+              description={`Pratinjau interaktif dan kode native (HTML, CSS, JS) komponen ${componentDemo.title}.`}
             >
               {componentDemo.preview}
             </ComponentPreview>
@@ -82,38 +84,42 @@ export function DocPage() {
 
           <section className="space-y-3">
             <h2 id="installation" className="text-xl sm:text-2xl font-bold tracking-tight text-foreground pb-2 border-b border-border">
-              Installation
+              Installation &amp; Integration
             </h2>
             <p className="text-sm text-muted-foreground">
-              Tambahkan komponen ke project Anda menggunakan CLI package manager pilihan Anda:
+              Integrasikan stylesheet dan script native Ocenix UI ke dalam berkas HTML Anda melalui CDN:
             </p>
             <CodeBlock
-              code={`pnpm add @ocenix/ui`}
-              language="bash"
-              fileName="Terminal"
+              code={`<!-- Ocenix UI CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />
+
+<!-- Ocenix UI JavaScript (Opsional untuk interaktivitas) -->
+<script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>`}
+              language="html"
+              fileName="index.html"
             />
           </section>
 
           <section className="space-y-3">
             <h2 id="usage" className="text-xl sm:text-2xl font-bold tracking-tight text-foreground pb-2 border-b border-border">
-              Usage Example
+              Native HTML Structure
             </h2>
             <p className="text-sm text-muted-foreground">
-              Gunakan komponen di dalam file template React Anda:
+              Salin struktur markup HTML native berikut langsung ke template atau dokumen web Anda:
             </p>
             <CodeBlock
-              code={componentDemo.code}
-              language="tsx"
-              fileName={`${componentDemo.title}Example.tsx`}
+              code={componentDemo.html}
+              language="html"
+              fileName={`${componentDemo.title.toLowerCase()}.html`}
             />
           </section>
 
           <section className="space-y-3">
             <h2 id="props" className="text-xl sm:text-2xl font-bold tracking-tight text-foreground pb-2 border-b border-border">
-              API Reference
+              Options &amp; Class Reference
             </h2>
             <p className="text-sm text-muted-foreground">
-              Daftar prop yang tersedia untuk mengontrol konfigurasi komponen:
+              Daftar kelas CSS, atribut ARIA, dan opsi native yang tersedia:
             </p>
             <PropsTable data={componentDemo.props} />
           </section>
@@ -132,36 +138,37 @@ export function DocPage() {
           {componentKey === 'installation' ? (
             <div className="mb-8">
               <h2 id="quick-start" className="text-xl sm:text-2xl font-bold tracking-tight text-foreground pb-2 border-b border-border mb-4">
-                Quick Setup Steps
+                Quick Setup Steps (Full Native)
               </h2>
               <Steps>
-                <StepItem title="Instalasi Paket Dependensi">
-                  Pasang dependensi inti Tailwind CSS v4, utilitas class merging, dan ikon Lucide:
+                <StepItem title="Sertakan CDN Stylesheet">
+                  Sisipkan link stylesheet Ocenix UI di dalam tag &lt;head&gt; dokumen HTML Anda:
                   <CodeBlock
-                    code="pnpm add tailwindcss @tailwindcss/vite clsx tailwind-merge lucide-react"
-                    language="bash"
-                    fileName="Terminal"
+                    code={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />`}
+                    language="html"
+                    fileName="index.html"
                   />
                 </StepItem>
-                <StepItem title="Aktifkan Plugin Vite">
-                  Daftarkan plugin Tailwind pada konfigurasi Vite Anda:
+                <StepItem title="Sertakan JavaScript Interaktif">
+                  Sisipkan script vanilla JS untuk komponen yang memerlukan interaksi (modal, tabs, switch, accordion):
                   <CodeBlock
-                    code={`import tailwindcss from "@tailwindcss/vite"\n\nexport default defineConfig({\n  plugins: [react(), tailwindcss()]\n})`}
-                    language="ts"
-                    fileName="vite.config.ts"
+                    code={`<script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>`}
+                    language="html"
+                    fileName="index.html"
                   />
                 </StepItem>
-                <StepItem title="Impor Desain Token">
-                  Muat variabel semantik di dalam stylesheet utama:
+                <StepItem title="Gunakan Elemen Native">
+                  Gunakan class semantik Ocenix pada elemen HTML native Anda tanpa perlu runtime tambahan:
                   <CodeBlock
-                    code={`@import "tailwindcss";\n@import "./tokens.css";`}
-                    language="css"
-                    fileName="src/index.css"
+                    code={`<button type="button" class="ox-btn ox-btn-primary">\n  Get Started\n</button>`}
+                    language="html"
+                    fileName="index.html"
                   />
                 </StepItem>
               </Steps>
             </div>
           ) : null}
+
 
           {componentKey === 'dark-mode' ? (
             <Callout type="warning" title="Mitigasi Masalah Produksi: Zero-FOUC">

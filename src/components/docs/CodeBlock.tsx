@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { Check, Copy, FileCode2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
+import { highlightCode } from '@/lib/syntax-highlighter'
 import { cn } from '@/lib/utils'
 
 export interface CodeBlockProps {
@@ -17,6 +19,11 @@ export function CodeBlock({
   className,
 }: CodeBlockProps) {
   const { isCopied, copyToClipboard } = useCopyToClipboard()
+
+  const highlighted = useMemo(
+    () => highlightCode(code.trim(), language),
+    [code, language],
+  )
 
   return (
     <div
@@ -53,9 +60,10 @@ export function CodeBlock({
         </Button>
 
         <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed selection:bg-zinc-800">
-          <code>{code.trim()}</code>
+          <code dangerouslySetInnerHTML={{ __html: highlighted }} />
         </pre>
       </div>
     </div>
   )
 }
+

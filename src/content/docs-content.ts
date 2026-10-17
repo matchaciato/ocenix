@@ -8,84 +8,81 @@ export interface DocContentData {
 export const docsContentMap: Record<string, DocContentData> = {
   introduction: {
     title: 'Introduction',
-    description: 'Filosofi desain, arsitektur dasar, dan ekosistem komponen Ocenix UI.',
+    description: 'Filosofi desain, arsitektur dasar, dan ekosistem komponen native Ocenix UI.',
     content: `
 ## Filosofi Desain
 
-**Ocenix UI** dirancang untuk menjembatani kesenjangan antara kemudahan penggunaan, aksesibilitas tingkat industri, dan estetika modern yang memukau. Kami mengambil esensi terbaik dari 4 ekosistem terkemuka:
+**Ocenix UI** dirancang untuk menghadirkan komponen antarmuka web modern dengan pendekatan **Full Native**: HTML5 semantik, CSS3 murni, dan Vanilla JavaScript tanpa ketergantungan pada runtime framework tertentu.
 
-1. **Radix UI**: Fondasi komponen tanpa gaya yang patuh 100% pada standar WAI-ARIA dan navigasi keyboard.
-2. **Tailwind CSS v4**: Utilitas styling berbasis variabel CSS murni yang fleksibel tanpa overhead build tool rumit.
-3. **Magic UI**: Lapisan animasi modern (Bento Grid, Border Beam, Marquee) dengan akselerasi GPU hardware.
-4. **Bootstrap**: Ketegasan arsitektur layout dan konsistensi skala tipografi.
+Kami menggabungkan keunggulan terbaik dari standar web modern:
 
-## Mengapa Menggunakan Ocenix UI?
+1. **Native-First Architecture**: Komponen dapat dijalankan di lingkungan HTML murni, PHP, Laravel, WordPress, Astro, mau pun integrasi framework modern.
+2. **WAI-ARIA Accessibility**: Standar aksesibilitas keyboard dan pembaca layar tertanam langsung pada atribut native (role, aria-expanded, aria-checked, aria-modal).
+3. **Hardware-Accelerated CSS Motion**: Transisi dan animasi dinamis (Bento Grid, Border Beam, Marquee, Meteors) ditenagai oleh CSS GPU transforms murni.
+4. **Zero-FOUC Dark Mode**: Perpindahan tema instan bebas kedipan dengan token CSS semantik.
 
-* **Zero-FOUC Dark Mode**: Tidak ada lagi efek kedipan warna putih saat aplikasi dimuat pertama kali.
-* **Single Source of Truth**: Struktur navigasi, sitemap, breadcrumb, dan paginasi digerakkan secara DRY oleh konfigurasi terpusat.
-* **Type-Safe**: Seluruh kontrak props ditulis menggunakan TypeScript ketat.
-* **Modular & Copy-Paste Friendly**: Ambil hanya komponen yang Anda butuhkan tanpa dependensi berlebih.
+## Tiga Cara Menggunakan Ocenix UI
+
+1. **Via CDN**: Tambahkan tag \`<link>\` dan \`<script>\` langsung ke file HTML Anda.
+2. **Download File Asset**: Simpan \`ocenix.min.css\` dan \`ocenix.min.js\` ke folder aset statis project Anda.
+3. **Copy-Paste Modular**: Di setiap halaman dokumentasi komponen, Anda dapat menyalin tab **HTML**, **CSS**, dan **JS** secara terpisah sesuai kebutuhan.
 `,
   },
   installation: {
     title: 'Installation & Setup',
-    description: 'Panduan langkah demi langkah mengintegrasikan Ocenix UI ke dalam project web Anda.',
+    description: 'Panduan integrasi native HTML, CSS, dan JavaScript Ocenix UI ke dalam project web Anda.',
     content: `
-## Persyaratan Sistem
+## Konsep Full Native
 
-Pastikan environment pengembangan Anda memenuhi versi berikut:
-* **Node.js**: Versi 18.0.0 atau lebih baru.
-* **Package Manager**: pnpm, npm, yarn, atau bun.
-* **React**: Versi 18 atau React 19.
+Ocenix UI tidak memerlukan instalasi library npm khusus (\`pnpm add\`). Anda cukup menyertakan stylesheet CSS dan file JavaScript pendukung langsung ke dalam project web Anda.
 
-## Langkah Instalasi
+## Metode 1: Integrasi CDN (Cepat & Siap Pakai)
 
-### 1. Inisialisasi Dependensi Inti
+Sisipkan link stylesheet CSS dan tag script berikut ke dalam tag \`<head>\` pada file HTML Anda:
 
-Jalankan perintah berikut pada terminal proyek Anda:
+\`\`\`html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Saya</title>
 
-\`\`\`bash
-pnpm add tailwindcss @tailwindcss/vite clsx tailwind-merge lucide-react
+  <!-- Ocenix UI CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />
+
+  <!-- Ocenix UI JavaScript (Opsional untuk komponen interaktif) -->
+  <script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>
+</head>
+<body class="bg-background text-foreground">
+  <button type="button" class="ox-btn ox-btn-primary">
+    Hello Ocenix UI
+  </button>
+</body>
+</html>
 \`\`\`
 
-### 2. Konfigurasi Tailwind CSS v4
+## Metode 2: Download File Asset Lokal
 
-Tambahkan plugin pada file \`vite.config.ts\`:
+Jika Anda bekerja secara offline atau ingin menyimpan aset di dalam server sendiri:
+1. Unduh berkas \`ocenix.min.css\` dan simpan pada direktori \`/css/ocenix.min.css\`.
+2. Unduh berkas \`ocenix.min.js\` dan simpan pada direktori \`/js/ocenix.min.js\`.
+3. Tautkan kedua berkas tersebut di dokumen HTML:
 
-\`\`\`ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
+\`\`\`html
+<link rel="stylesheet" href="./css/ocenix.min.css" />
+<script src="./js/ocenix.min.js" defer></script>
 \`\`\`
 
-### 3. Tambahkan Desain Token Semantik
+## Metode 3: Salin Tab HTML, CSS & JS per Komponen
 
-Import stylesheet token ke dalam \`src/index.css\`:
-
-\`\`\`css
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #09090b;
-  --primary: #09090b;
-  --primary-foreground: #fafafa;
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --primary: #fafafa;
-  --primary-foreground: #18181b;
-}
-\`\`\`
+Setiap komponen di dokumentasi Ocenix UI dilengkapi dengan tab terpisah untuk:
+* **HTML**: Struktur markup semantik dan atribut aksesibilitas ARIA.
+* **CSS**: Aturan gaya dan animasi murni yang dapat disesuaikan via variabel token.
+* **JS**: Skrip Vanilla JavaScript untuk mengontrol interaktivitas (seperti modal, akordion, tab, dan toggle).
 `,
   },
+
   theming: {
     title: 'Theming & Tokens',
     description: 'Kustomisasi variabel warna semantik, radius sudut, dan skala tipografi.',

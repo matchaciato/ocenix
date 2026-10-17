@@ -1,4 +1,5 @@
 import { Marked } from 'marked'
+import { highlightCode } from '@/lib/syntax-highlighter'
 import type { TableOfContentsItem } from '@/types/nav.types'
 
 export function slugify(text: string): string {
@@ -83,7 +84,8 @@ export function renderMarkdown(markdown: string): string {
         return `<p class="text-sm leading-relaxed text-muted-foreground my-4">${text}</p>`
       },
       code({ text, lang }) {
-        return `<div class="relative my-4 rounded-xl border border-zinc-800 bg-zinc-950 p-4 font-mono text-xs text-zinc-100 overflow-x-auto"><span class="absolute top-2 right-3 text-[10px] uppercase font-mono text-zinc-500">${lang || 'code'}</span><code>${text}</code></div>`
+        const highlighted = highlightCode(text, lang || 'html')
+        return `<div class="relative my-4 rounded-xl border border-zinc-800 bg-zinc-950 p-4 font-mono text-xs text-zinc-100 overflow-x-auto"><span class="absolute top-2 right-3 text-[10px] uppercase font-mono text-zinc-500">${lang || 'code'}</span><pre class="m-0 p-0 bg-transparent"><code>${highlighted}</code></pre></div>`
       },
       codespan({ text }) {
         return `<code class="rounded bg-muted/80 px-1.5 py-0.5 font-mono text-xs text-foreground font-medium">${text}</code>`

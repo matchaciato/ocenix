@@ -39,16 +39,16 @@ export function LandingPage() {
   const [btnLoading, setBtnLoading] = useState(false)
   const { isCopied, copyToClipboard } = useCopyToClipboard()
 
-  const installCommand = 'pnpm add ocenix-ui'
+  const cdnSnippet = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />'
   const techLogos = [
-    'React 19',
+    'HTML5 & CSS3',
+    'Vanilla JavaScript',
+    'Full Native Web',
     'Tailwind CSS v4',
-    'Radix Primitives',
-    'TypeScript',
-    'Magic UI Motion',
     'Zero-FOUC Dark Mode',
     'WAI-ARIA Accessibility',
-    'Markdown Engine',
+    'Magic UI Motion',
+    'Zero Dependencies',
   ]
 
   return (
@@ -57,20 +57,20 @@ export function LandingPage() {
         <div className="container mx-auto max-w-5xl px-4 sm:px-8 text-center flex flex-col items-center">
           <Badge variant="secondary" className="mb-6 px-3 py-1 gap-1.5 text-xs">
             <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-            Complete UI Kit Ecosystem &amp; Magic Motion
+            Full Native UI Kit &amp; Pure Web Stack
           </Badge>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-3xl">
             Modern UI Kit with{' '}
             <span className="bg-gradient-to-r from-primary via-primary/80 to-muted-foreground bg-clip-text text-transparent">
-              Radix Primitives
+              Full Native Web
             </span>{' '}
             &amp; Magic Motion
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Arsitektur terstruktur menggabungkan utility Tailwind CSS v4, aksesibilitas WAI-ARIA
-            Radix UI, dan animasi modern ala Magic UI untuk dokumentasi dan aplikasi web mutakhir.
+            Arsitektur terstruktur berbasis standar web native (HTML, CSS, JS), aksesibilitas WAI-ARIA,
+            dan animasi modern untuk dokumentasi dan aplikasi web mutakhir tanpa ketergantungan runtime.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -83,15 +83,17 @@ export function LandingPage() {
             <Button
               variant="outline"
               size="lg"
-              className="font-mono text-xs gap-2"
-              onClick={() => copyToClipboard(installCommand)}
+              className="font-mono text-xs gap-2 max-w-xs sm:max-w-md truncate"
+              onClick={() => copyToClipboard(cdnSnippet)}
+              title={cdnSnippet}
             >
-              {isCopied ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
-              {installCommand}
+              {isCopied ? <Check className="h-4 w-4 text-emerald-500 shrink-0" /> : <Copy className="h-4 w-4 shrink-0" />}
+              <span className="truncate">&lt;link rel="stylesheet" href=".../ocenix.min.css" /&gt;</span>
             </Button>
           </div>
         </div>
       </section>
+
 
       <div className="border-b border-border bg-card/50 py-3 overflow-hidden">
         <Marquee pauseOnHover className="[--duration:30s]">
