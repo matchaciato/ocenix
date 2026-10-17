@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import { AlertCircle, AlertTriangle, Info, Lightbulb } from 'lucide-react'
+import { renderInlineMarkdown } from '@/lib/markdown'
 import { cn } from '@/lib/utils'
 
 export type CalloutType = 'note' | 'tip' | 'warning' | 'danger'
@@ -64,7 +65,11 @@ export function Callout({
           {title || config.defaultTitle}
         </p>
         <div className="text-muted-foreground leading-relaxed">
-          {children}
+          {typeof children === 'string' ? (
+            <span dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(children) }} />
+          ) : (
+            children
+          )}
         </div>
       </div>
     </div>

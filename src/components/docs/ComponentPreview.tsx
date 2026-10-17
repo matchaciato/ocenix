@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/Button'
 import { ErrorBoundary } from '@/components/docs/ErrorBoundary'
 import { CodeBlock } from '@/components/docs/CodeBlock'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import { slugify } from '@/lib/markdown'
+import { slugify, renderInlineMarkdown } from '@/lib/markdown'
 import { cn } from '@/lib/utils'
 
 export type ViewportSize = 'desktop' | 'tablet' | 'mobile'
@@ -185,9 +185,10 @@ export function ComponentPreview({
       </div>
 
       {description ? (
-        <div className="px-4 py-2 border-b border-border bg-muted/10 text-xs text-muted-foreground">
-          {description}
-        </div>
+        <div
+          className="px-4 py-2 border-b border-border bg-muted/10 text-xs text-muted-foreground"
+          dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(description) }}
+        />
       ) : null}
 
       <div className="relative">

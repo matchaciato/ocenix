@@ -9,6 +9,7 @@ import { PropsTable } from '@/components/docs/PropsTable'
 import { Callout } from '@/components/docs/Callout'
 import { Steps, StepItem } from '@/components/docs/Steps'
 import { MarkdownRenderer } from '@/components/docs/MarkdownRenderer'
+import { renderInlineMarkdown } from '@/lib/markdown'
 import { componentRegistry } from '@/components/docs/component-registry'
 import { docsContentMap } from '@/content/docs-content'
 import { useSEO } from '@/hooks/use-seo'
@@ -50,9 +51,10 @@ export function DocPage() {
             </Badge>
           ) : null}
         </div>
-        <p className="text-base text-muted-foreground leading-relaxed">
-          {description}
-        </p>
+        <p
+          className="text-base text-muted-foreground leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(description) }}
+        />
         <div className="flex items-center gap-3 pt-2 text-xs text-muted-foreground">
           <a
             href={siteConfig.links.github}

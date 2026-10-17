@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/Badge'
+import { renderInlineMarkdown } from '@/lib/markdown'
 import { cn } from '@/lib/utils'
 
 export interface PropItem {
@@ -57,9 +58,10 @@ export function PropsTable({ data, className }: PropsTableProps) {
                   <span className="text-muted-foreground/60">-</span>
                 )}
               </td>
-              <td className="py-3 px-4 text-muted-foreground leading-relaxed align-top">
-                {item.description}
-              </td>
+              <td
+                className="py-3 px-4 text-muted-foreground leading-relaxed align-top"
+                dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(item.description) }}
+              />
             </tr>
           ))}
         </tbody>
