@@ -8,50 +8,50 @@ export interface DocContentData {
 export const docsContentMap: Record<string, DocContentData> = {
   introduction: {
     title: 'Introduction',
-    description: 'Filosofi desain, arsitektur dasar, dan ekosistem komponen native Ocenix UI.',
+    description: 'Design philosophy, core architecture, and the native Ocenix UI component ecosystem.',
     content: `
-## Filosofi Desain
+## Design Philosophy
 
-**Ocenix UI** dirancang untuk menghadirkan komponen antarmuka web modern dengan pendekatan **Full Native**: HTML5 semantik, CSS3 murni, dan Vanilla JavaScript tanpa ketergantungan pada runtime framework tertentu.
+**Ocenix UI** is designed to deliver modern web interfaces with a **Full Native** approach: semantic HTML5, pure CSS3, and lightweight Vanilla JavaScript without framework or runtime lock-in.
 
-Kami menggabungkan keunggulan terbaik dari standar web modern:
+We combine the greatest strengths of the modern web:
 
-1. **Native-First Architecture**: Komponen dapat dijalankan di lingkungan HTML murni, PHP, Laravel, WordPress, Astro, mau pun integrasi framework modern.
-2. **WAI-ARIA Accessibility**: Standar aksesibilitas keyboard dan pembaca layar tertanam langsung pada atribut native (role, aria-expanded, aria-checked, aria-modal).
-3. **Hardware-Accelerated CSS Motion**: Transisi dan animasi dinamis (Bento Grid, Border Beam, Marquee, Meteors) ditenagai oleh CSS GPU transforms murni.
-4. **Zero-FOUC Dark Mode**: Perpindahan tema instan bebas kedipan dengan token CSS semantik.
+1. **Native-First Architecture**: Components execute seamlessly in plain HTML, Laravel, PHP, WordPress, Astro, or any modern framework template.
+2. **WAI-ARIA Accessibility**: Standard keyboard navigation and screen reader semantics are built directly into native attributes (\`role\`, \`aria-expanded\`, \`aria-checked\`, \`aria-modal\`).
+3. **Hardware-Accelerated CSS Motion**: Dynamic animations and transitions (Bento Grid, Border Beam, Marquee, Meteors) are powered by GPU CSS transforms.
+4. **Zero-FOUC Dark Mode**: Instant, flicker-free dark mode switching powered by semantic CSS custom properties.
 
-## Tiga Cara Menggunakan Ocenix UI
+## Three Ways to Use Ocenix UI
 
-1. **Via CDN**: Tambahkan tag \`<link>\` dan \`<script>\` langsung ke file HTML Anda.
-2. **Download File Asset**: Simpan \`ocenix.min.css\` dan \`ocenix.min.js\` ke folder aset statis project Anda.
-3. **Copy-Paste Modular**: Di setiap halaman dokumentasi komponen, Anda dapat menyalin tab **HTML**, **CSS**, dan **JS** secara terpisah sesuai kebutuhan.
+1. **Via CDN**: Add the stylesheet \`<link>\` and script \`<script>\` directly to your HTML document.
+2. **Download Asset Files**: Save \`ocenix.min.css\` and \`ocenix.min.js\` directly into your static assets directory.
+3. **Modular Copy-Paste**: On every component documentation page, copy separate **HTML**, **CSS**, and **JS** tabs according to your project requirements.
 `,
   },
   installation: {
     title: 'Installation & Setup',
-    description: 'Panduan integrasi native HTML, CSS, dan JavaScript Ocenix UI ke dalam project web Anda.',
+    description: 'Complete guide to integrating native HTML, CSS, and JavaScript into your web project.',
     content: `
-## Konsep Full Native
+## Full Native Architecture
 
-Ocenix UI tidak memerlukan instalasi library npm khusus (\`pnpm add\`). Anda cukup menyertakan stylesheet CSS dan file JavaScript pendukung langsung ke dalam project web Anda.
+Ocenix UI requires no npm package installation (\`pnpm add\`). You can directly link the stylesheet and optional JavaScript runtime in your web project.
 
-## Metode 1: Integrasi CDN (Cepat & Siap Pakai)
+## Method 1: CDN Integration (Instant & Production-Ready)
 
-Sisipkan link stylesheet CSS dan tag script berikut ke dalam tag \`<head>\` pada file HTML Anda:
+Insert the stylesheet link and script tags inside the \`<head>\` tag of your HTML document:
 
 \`\`\`html
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Saya</title>
+  <title>My Web Project</title>
 
   <!-- Ocenix UI CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />
 
-  <!-- Ocenix UI JavaScript (Opsional untuk komponen interaktif) -->
+  <!-- Ocenix UI JavaScript (Optional for interactive components) -->
   <script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>
 </head>
 <body class="bg-background text-foreground">
@@ -62,63 +62,62 @@ Sisipkan link stylesheet CSS dan tag script berikut ke dalam tag \`<head>\` pada
 </html>
 \`\`\`
 
-## Metode 2: Download File Asset Lokal
+## Method 2: Local Static File Download
 
-Jika Anda bekerja secara offline atau ingin menyimpan aset di dalam server sendiri:
-1. Unduh berkas \`ocenix.min.css\` dan simpan pada direktori \`/css/ocenix.min.css\`.
-2. Unduh berkas \`ocenix.min.js\` dan simpan pada direktori \`/js/ocenix.min.js\`.
-3. Tautkan kedua berkas tersebut di dokumen HTML:
+If you work offline or host your own assets:
+1. Download \`ocenix.min.css\` and place it in your \`/css/ocenix.min.css\` folder.
+2. Download \`ocenix.min.js\` and place it in your \`/js/ocenix.min.js\` folder.
+3. Link both files in your HTML template:
 
 \`\`\`html
 <link rel="stylesheet" href="./css/ocenix.min.css" />
 <script src="./js/ocenix.min.js" defer></script>
 \`\`\`
 
-## Metode 3: Salin Tab HTML, CSS & JS per Komponen
+## Method 3: Copy HTML, CSS & JS Tabs per Component
 
-Setiap komponen di dokumentasi Ocenix UI dilengkapi dengan tab terpisah untuk:
-* **HTML**: Struktur markup semantik dan atribut aksesibilitas ARIA.
-* **CSS**: Aturan gaya dan animasi murni yang dapat disesuaikan via variabel token.
-* **JS**: Skrip Vanilla JavaScript untuk mengontrol interaktivitas (seperti modal, akordion, tab, dan toggle).
+Every component in Ocenix UI documentation features separate tabs for:
+* **HTML**: Semantic markup structure and ARIA accessibility attributes.
+* **CSS**: Clean styling and keyframe animations customizable through design tokens.
+* **JS**: Vanilla JavaScript to handle interactivity (such as dialogs, accordions, tabs, and switches).
 `,
   },
-
   theming: {
     title: 'Theming & Tokens',
-    description: 'Kustomisasi variabel warna semantik, radius sudut, dan skala tipografi.',
+    description: 'Customizing semantic color variables, border radiuses, and typography scales.',
     content: `
-## Struktur Desain Token
+## Semantic Design Token Structure
 
-Ocenix UI memisahkan token warna ke dalam lapisan semantik abstrak sehingga tema terang dan gelap dapat berganti instan:
+Ocenix UI separates color tokens into an abstract semantic layer so that light and dark modes toggle instantaneously:
 
-| Token Semantik | Deskripsi Penggunaan |
+| Semantic Token | Usage Description |
 | :--- | :--- |
-| \`--background\` | Latar belakang kanvas utama aplikasi. |
-| \`--foreground\` | Warna teks primer pada kanvas. |
-| \`--card\` | Latar belakang kontainer kartu dan panel. |
-| \`--primary\` | Warna tombol dan indikator aksi utama. |
-| \`--muted\` | Latar sekunder dan teks deskripsi halus. |
-| \`--destructive\` | Status error, validasi gagal, dan aksi berbahaya. |
+| \`--background\` | Main canvas background color. |
+| \`--foreground\` | Primary text and content color. |
+| \`--card\` | Surface color for cards, panels, and modals. |
+| \`--primary\` | Accent color for buttons and primary actions. |
+| \`--muted\` | Secondary background and subtle text. |
+| \`--destructive\` | Error states, validation failures, and destructive actions. |
 
-## Radius Token
+## Border Radius Tokens
 
-Anda dapat mengatur sudut lengkung komponen secara terpusat melalui variabel \`--radius\`:
+Control component corner curvature centrally using the \`--radius\` custom property:
 * \`sm\`: 0.25rem (4px)
 * \`md\`: 0.375rem (6px)
-* \`lg\`: 0.5rem (8px) – Standar default
+* \`lg\`: 0.5rem (8px) – Default standard
 `,
   },
   'dark-mode': {
     title: 'Dark Mode Integration',
-    description: 'Arsitektur bebas kedipan (Zero-FOUC) dengan sinkronisasi sistem dan penyimpanan lokal.',
+    description: 'Flicker-free (Zero-FOUC) dark mode architecture with system preference detection and localStorage persistence.',
     content: `
-## Masalah FOUC di Lingkungan Produksi
+## Understanding FOUC in Production
 
-Sebagian besar implementasi dark mode di React mengalami masalah **Flash of Unstyled Color (FOUC)** karena React baru membaca preferensi tema di \`localStorage\` setelah hydration selesai di browser.
+Most dark mode implementations suffer from **Flash of Unstyled Color (FOUC)** because client-side JavaScript reads stored preferences after the browser has already initiated page rendering.
 
-## Solusi Zero-FOUC Ocenix UI
+## The Ocenix UI Zero-FOUC Solution
 
-Tambahkan script sinkronus langsung pada \`<head>\` di file \`index.html\` sebelum bundle JavaScript dimuat:
+Place an inline blocking script directly inside the \`<head>\` tag of your \`index.html\` before stylesheets and scripts render:
 
 \`\`\`html
 <script>
@@ -141,38 +140,38 @@ Tambahkan script sinkronus langsung pada \`<head>\` di file \`index.html\` sebel
   },
   accessibility: {
     title: 'Accessibility Standards',
-    description: 'Komitmen aksesibilitas WAI-ARIA dan navigasi keyboard penuh.',
+    description: 'Commitment to WAI-ARIA guidelines, visible focus rings, and full keyboard navigation.',
     content: `
-## Prinsip Aksesibilitas
+## Accessibility Principles
 
-Setiap komponen yang ada di dalam Ocenix UI mematuhi pedoman aksesibilitas berikut:
+Every component in Ocenix UI adheres to the following accessibility standards:
 
-1. **Focus Ring Kontras Tinggi**: Setiap elemen interaktif memiliki outline ring yang terlihat jelas saat dinavigasi menggunakan keyboard.
-2. **Atribut ARIA Otomatis**: Penggunaan \`role="switch"\`, \`aria-checked\`, dan \`aria-label\` secara inheren.
-3. **Reduced Motion**: Bagi pengguna dengan preferensi sensitivitas gerakan (\`prefers-reduced-motion\`), seluruh durasi animasi dinonaktifkan otomatis.
+1. **High-Contrast Focus Rings**: All interactive controls feature visible outline rings when navigated via keyboard.
+2. **Automated ARIA Semantics**: Native usage of \`role="switch"\`, \`role="dialog"\`, \`aria-checked\`, and \`aria-expanded\`.
+3. **Reduced Motion**: For users with motion sensitivities (\`prefers-reduced-motion\`), CSS transitions and animations are automatically reduced.
 
-## Navigasi Keyboard Terstandar
+## Standard Keyboard Navigation
 
-* \`Tab\` / \`Shift + Tab\`: Pindah fokus antar elemen.
-* \`Enter\` / \`Space\`: Mengaktifkan tombol atau mengubah status toggle switch.
-* \`Escape\`: Menutup drawer navigasi, dialog, atau menu popover.
+* \`Tab\` / \`Shift + Tab\`: Move focus forward and backward across elements.
+* \`Enter\` / \`Space\`: Trigger button clicks or toggle switch state.
+* \`Escape\`: Dismiss mobile navigation drawers, dialog modals, or popovers.
 `,
   },
   'tokens/colors': {
     title: 'Colors Palette',
-    description: 'Katalog warna semantik netral, aksen primer, dan indikator status.',
+    description: 'Semantic neutral palettes, primary accents, and status indicators.',
     content: `
-## Palet Warna Semantik
+## Semantic Color System
 
-Palet warna netral zinc/slate memberikan kontras ideal untuk keterbacaan teks teknis:
+Neutral zinc and slate color palettes deliver optimal readability and WCAG AA contrast ratios:
 
-| Warna | Varian Light | Varian Dark | Kegunaan |
+| Color | Light Variant | Dark Variant | Intended Role |
 | :--- | :--- | :--- | :--- |
-| **Canvas** | #ffffff | #09090b | Background utama halaman |
-| **Card** | #ffffff | #121215 | Permukaan panel & elevated cards |
-| **Primary** | #09090b | #fafafa | Tombol aksi primer |
-| **Border** | #e4e4e7 | #27272a | Garis pemisah dan stroke input |
-| **Destructive** | #ef4444 | #ef4444 | Aksi hapus dan badge error |
+| **Canvas** | #ffffff | #09090b | Main page background |
+| **Card** | #ffffff | #121215 | Elevated container surfaces |
+| **Primary** | #09090b | #fafafa | Primary action buttons |
+| **Border** | #e4e4e7 | #27272a | Component borders and input outlines |
+| **Destructive** | #ef4444 | #ef4444 | Error badges and destructive actions |
 `,
   },
 }

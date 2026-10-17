@@ -69,16 +69,16 @@ export function CardDemo() {
           <CardTitle>Notifications</CardTitle>
           <Bell className="h-4 w-4 text-muted-foreground" />
         </div>
-        <CardDescription>Pilih preferensi notifikasi akun Anda.</CardDescription>
+        <CardDescription>Choose your account notification preferences.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2 text-xs text-muted-foreground">
-        <p>Anda akan menerima pembaruan rilis setiap versi baru diterbitkan.</p>
+        <p>You will receive release alerts whenever a new update is published.</p>
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" size="sm">
-          Abaikan
+          Dismiss
         </Button>
-        <Button size="sm">Simpan</Button>
+        <Button size="sm">Save changes</Button>
       </CardFooter>
     </Card>
   )
@@ -148,7 +148,7 @@ export function DialogDemo() {
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>
           <DialogDescription>
-            Ubah detail profil akun Anda di sini. Klik simpan setelah selesai.
+            Update your profile information below. Click save when you are finished.
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4 py-2">
@@ -156,8 +156,8 @@ export function DialogDemo() {
           <Input placeholder="Email" defaultValue="alex@example.com" />
         </div>
         <DialogFooter>
-          <Button variant="outline" size="sm">Batal</Button>
-          <Button size="sm">Simpan Perubahan</Button>
+          <Button variant="outline" size="sm">Cancel</Button>
+          <Button size="sm">Save changes</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -167,14 +167,14 @@ export function DialogDemo() {
 export function TooltipDemo() {
   return (
     <div className="flex items-center gap-4">
-      <Tooltip content="Informasi bantuan tambahan">
+      <Tooltip content="Additional help information">
         <Button variant="outline" size="icon">
           <HelpCircle className="h-4 w-4" />
         </Button>
       </Tooltip>
-      <Tooltip content="Lihat profil pengguna" side="bottom">
+      <Tooltip content="View user profile" side="bottom">
         <Button variant="secondary" size="sm">
-          Arahkan Kursor ke Sini
+          Hover Over Me
         </Button>
       </Tooltip>
     </div>
@@ -192,7 +192,7 @@ export function TabsDemo() {
         <Card>
           <CardHeader>
             <CardTitle>Account Details</CardTitle>
-            <CardDescription>Kelola informasi akun Anda di sini.</CardDescription>
+            <CardDescription>Manage your account details and profile preferences.</CardDescription>
           </CardHeader>
         </Card>
       </TabsContent>
@@ -200,7 +200,7 @@ export function TabsDemo() {
         <Card>
           <CardHeader>
             <CardTitle>Change Password</CardTitle>
-            <CardDescription>Perbarui kata sandi untuk keamanan.</CardDescription>
+            <CardDescription>Update your password to enhance security.</CardDescription>
           </CardHeader>
         </Card>
       </TabsContent>
@@ -212,15 +212,15 @@ export function AccordionDemo() {
   return (
     <Accordion type="single" defaultValue="item-1" className="w-full max-w-md">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Apakah Ocenix UI gratis?</AccordionTrigger>
+        <AccordionTrigger>Is Ocenix UI free to use?</AccordionTrigger>
         <AccordionContent>
-          Ya, Ocenix UI dirilis dengan lisensi open source MIT dan dapat digunakan gratis untuk proyek komersial maupun pribadi.
+          Yes, Ocenix UI is released under the MIT open-source license and can be used for both personal and commercial projects.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>Bagaimana dukungan aksesibilitasnya?</AccordionTrigger>
+        <AccordionTrigger>How does accessibility work?</AccordionTrigger>
         <AccordionContent>
-          Setiap komponen dirancang mematuhi pedoman WAI-ARIA dan mendukung penuh interaksi keyboard serta screen reader.
+          Every component follows WAI-ARIA authoring guidelines and provides complete keyboard and screen reader support.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -246,7 +246,7 @@ export function AvatarDemo() {
 export function TextareaDemo() {
   return (
     <div className="w-full max-w-sm space-y-2">
-      <Textarea placeholder="Tuliskan pesan atau catatan Anda di sini..." />
+      <Textarea placeholder="Type your feedback or message here..." />
     </div>
   )
 }

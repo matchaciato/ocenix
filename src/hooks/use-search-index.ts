@@ -21,7 +21,7 @@ export function useSearchIndex() {
       title: 'Home',
       href: '/',
       category: 'General',
-      description: 'Landing page dan tinjauan umum Ocenix UI.',
+      description: 'Landing page and overview of Ocenix UI.',
     })
 
     items.push({
@@ -29,7 +29,7 @@ export function useSearchIndex() {
       title: 'Showcase & Examples',
       href: '/showcase',
       category: 'General',
-      description: 'Galeri template dan blok antarmuka siap pakai.',
+      description: 'Ready-to-use UI templates and showcase gallery.',
     })
 
     docsConfig.sidebarNav.forEach((section) => {
@@ -40,11 +40,12 @@ export function useSearchIndex() {
           href: item.href,
           category: section.title,
           badge: item.badge,
-          description: item.description || `Dokumentasi untuk ${item.title}.`,
+          description: item.description || `Documentation and guides for ${item.title}.`,
           keywords: [section.title.toLowerCase(), item.title.toLowerCase()],
         })
       })
     })
+
 
     return items
   }, [])

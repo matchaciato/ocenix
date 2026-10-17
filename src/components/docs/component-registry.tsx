@@ -33,7 +33,7 @@ export interface ComponentDemo {
 export const componentRegistry: Record<string, ComponentDemo> = {
   button: {
     title: 'Button',
-    description: 'Komponen tombol interaktif native dengan ragam varian, ukuran, dan status loading spinner.',
+    description: 'Interactive native button component supporting multiple visual variants, sizes, and loading spinner states.',
     html: `<button type="button" class="ox-btn ox-btn-primary">Primary Action</button>
 <button type="button" class="ox-btn ox-btn-secondary">Secondary</button>
 <button type="button" class="ox-btn ox-btn-outline">Outline</button>
@@ -125,31 +125,31 @@ export const componentRegistry: Record<string, ComponentDemo> = {
         prop: 'class="ox-btn-primary"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Varian visual warna primer untuk aksi tombol utama.',
+        description: 'Primary action button styling with solid visual emphasis.',
       },
       {
         prop: 'class="ox-btn-secondary"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Varian sekunder dengan latar belakang netral lembut.',
+        description: 'Secondary action button with neutral muted styling.',
       },
       {
         prop: 'class="is-loading"',
         type: 'CSS State Class',
         default: 'none',
-        description: 'Menampilkan animasi spinner dan mengunci interaksi klik.',
+        description: 'Displays an animated spinner and disables click interactions.',
       },
       {
         prop: 'disabled',
         type: 'HTML Attribute',
         default: 'false',
-        description: 'Menonaktifkan aksi dan mengubah pointer tombol secara native.',
+        description: 'Disables pointer events and lowers opacity natively.',
       },
     ],
   },
   card: {
     title: 'Card',
-    description: 'Komponen kontainer berbasis semantik HTML untuk mengelompokkan informasi terstruktur.',
+    description: 'Semantic container component designed to group structured content and actions.',
     html: `<div class="ox-card">
   <div class="ox-card-header">
     <h3 class="ox-card-title">Create project</h3>
@@ -220,25 +220,25 @@ export const componentRegistry: Record<string, ComponentDemo> = {
         prop: 'class="ox-card"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Kelas pembungkus kontainer kartu dengan border dan bayangan halus.',
+        description: 'Wrapper container class providing subtle borders and elevation.',
       },
       {
         prop: 'class="ox-card-header"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Bagian kepala kartu untuk judul dan sub-deskripsi.',
+        description: 'Header region for titles and secondary descriptions.',
       },
       {
         prop: 'class="ox-card-footer"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Bagian bawah kartu untuk tombol aksi atau metadata tambahan.',
+        description: 'Bottom container region for action buttons and metadata.',
       },
     ],
   },
   input: {
     title: 'Input',
-    description: 'Field input native berkinerja tinggi dengan dukungan prefix icon dan focus ring yang jelas.',
+    description: 'High-performance native input field with prefix icon alignment and visible focus rings.',
     html: `<div class="ox-input-group">
   <span class="ox-input-icon">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -305,19 +305,19 @@ if (searchInput) {
         prop: 'class="ox-input"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Kelas gaya input native dengan padding dan border konsisten.',
+        description: 'Native input styling with consistent height, padding, and borders.',
       },
       {
         prop: 'class="ox-input-group"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Kontainer pembungkus untuk penyelarasan ikon prefix/suffix.',
+        description: 'Wrapper container for aligning prefix or suffix icons.',
       },
     ],
   },
   switch: {
     title: 'Switch',
-    description: 'Kontrol toggle dua status yang aksesibel sesuai standar WAI-ARIA switch pattern.',
+    description: 'Accessible two-state toggle control following WAI-ARIA switch pattern.',
     html: `<div class="ox-switch-container">
   <button
     type="button"
@@ -398,19 +398,19 @@ if (searchInput) {
         prop: 'role="switch"',
         type: 'ARIA Attribute',
         default: "'switch'",
-        description: 'Atribut aksesibilitas yang mendefinisikan elemen sebagai saklar toggle.',
+        description: 'ARIA role defining the element as an interactive toggle switch.',
       },
       {
         prop: 'aria-checked="true|false"',
         type: 'ARIA State',
         default: "'false'",
-        description: 'Status nilai aktif saklar untuk screen reader dan selector styling CSS.',
+        description: 'State indicator for screen readers and CSS selector styling.',
       },
     ],
   },
   badge: {
     title: 'Badge',
-    description: 'Indikator status kecil berbentuk pill untuk kategori atau tag numerik.',
+    description: 'Compact pill indicator for categorization, badges, or numeric counters.',
     html: `<span class="ox-badge ox-badge-default">Default</span>
 <span class="ox-badge ox-badge-secondary">Secondary</span>
 <span class="ox-badge ox-badge-outline">Outline</span>
@@ -466,19 +466,19 @@ if (searchInput) {
         prop: 'class="ox-badge-default"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Latar gelap primer untuk badge status utama.',
+        description: 'Dark primary background for prominent status indicators.',
       },
       {
         prop: 'class="ox-badge-success"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Latar hijau emerald untuk status sukses atau aktif.',
+        description: 'Emerald green badge representing active or successful states.',
       },
     ],
   },
   dialog: {
     title: 'Dialog (Modal)',
-    description: 'Jendela dialog modal native dengan backdrop filter blur, penangkap tombol Escape, dan pengunci scroll latar.',
+    description: 'Native modal dialog with blurred backdrop filter, Escape key trapping, and background scroll lock.',
     html: `<button type="button" class="ox-btn ox-btn-primary" id="openDialogBtn">
   Open Dialog
 </button>
@@ -582,19 +582,19 @@ if (openBtn && overlay) {
         prop: 'aria-modal="true"',
         type: 'ARIA Attribute',
         default: "'true'",
-        description: 'Menginformasikan pembaca layar bahwa konten di luar dialog tidak dapat diinteraksi.',
+        description: 'Informs screen readers that content outside the modal cannot be interacted with.',
       },
       {
         prop: 'hidden',
         type: 'HTML Attribute',
         default: 'true',
-        description: 'Menyembunyikan overlay dialog saat dalam keadaan tertutup.',
+        description: 'Hides the modal backdrop overlay when in closed state.',
       },
     ],
   },
   tooltip: {
     title: 'Tooltip',
-    description: 'Overlay kontekstual singkat saat pengguna mengarahkan kursor atau fokus pada elemen.',
+    description: 'Contextual popover displayed when hovering or focusing on an element.',
     html: `<div class="ox-tooltip-wrap">
   <button type="button" class="ox-btn ox-btn-outline" aria-describedby="tooltip-info">
     Hover Me
@@ -657,19 +657,19 @@ if (openBtn && overlay) {
         prop: 'role="tooltip"',
         type: 'ARIA Attribute',
         default: "'tooltip'",
-        description: 'Standar ARIA untuk elemen tooltip deskripsi.',
+        description: 'ARIA standard role for contextual description elements.',
       },
       {
         prop: 'aria-describedby',
         type: 'HTML Attribute',
         default: 'ID tooltip',
-        description: 'Menghubungkan elemen pemicu dengan elemen tooltip terkait.',
+        description: 'Associates the triggering element with the target tooltip element.',
       },
     ],
   },
   tabs: {
     title: 'Tabs',
-    description: 'Antarmuka tab berlapis dengan dukungan aksesibilitas WAI-ARIA tablist dan tabpanel.',
+    description: 'Layered tabs interface compliant with WAI-ARIA tablist and tabpanel guidelines.',
     html: `<div class="ox-tabs" data-tabs>
   <div role="tablist" class="ox-tablist">
     <button role="tab" aria-selected="true" aria-controls="panel-overview" id="tab-overview" class="ox-tab is-active">
@@ -756,19 +756,19 @@ if (openBtn && overlay) {
         prop: 'role="tablist"',
         type: 'ARIA Attribute',
         default: "'tablist'",
-        description: 'Mendefinisikan daftar kontainer tab.',
+        description: 'Container role defining the list of interactive tab buttons.',
       },
       {
         prop: 'aria-selected="true|false"',
         type: 'ARIA State',
         default: "'false'",
-        description: 'Status tab yang sedang aktif dipilih pengguna.',
+        description: 'Indicates whether the tab button is currently active.',
       },
     ],
   },
   accordion: {
     title: 'Accordion',
-    description: 'Daftar item vertikal native yang dapat dibuka dan ditutup dengan transisi tinggi halus.',
+    description: 'Vertically stacked native collapsible list items with fluid height transitions.',
     html: `<div class="ox-accordion" data-accordion>
   <div class="ox-accordion-item">
     <button type="button" class="ox-accordion-trigger" aria-expanded="false" aria-controls="faq-native">
@@ -870,13 +870,13 @@ if (openBtn && overlay) {
         prop: 'aria-expanded="true|false"',
         type: 'ARIA State',
         default: "'false'",
-        description: 'Status perluasan item akordion untuk aksesibilitas dan animasi panah chevron.',
+        description: 'Controls accordion expansion state and rotates the indicator icon.',
       },
     ],
   },
   avatar: {
     title: 'Avatar',
-    description: 'Elemen gambar profil pengguna dengan fallback inisial teks otomatis saat gambar gagal termuat.',
+    description: 'User profile image with automated text initial fallback when images fail to load.',
     html: `<div class="ox-avatar">
   <img
     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&fit=crop"
@@ -927,13 +927,13 @@ if (openBtn && overlay) {
         prop: 'class="ox-avatar"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Pembungkus avatar berbentuk bulat dengan border dan background default.',
+        description: 'Circular avatar container with background and boundary borders.',
       },
     ],
   },
   textarea: {
     title: 'Textarea',
-    description: 'Bidang input teks multi-baris yang responsif dengan konsistensi ring fokus.',
+    description: 'Multi-line responsive text input field with unified focus ring styling.',
     html: `<div class="ox-textarea-wrap">
   <label for="feedbackMessage" class="ox-label">Your message</label>
   <textarea
@@ -993,13 +993,13 @@ if (openBtn && overlay) {
         prop: 'data-auto-resize',
         type: 'Data Attribute',
         default: 'none',
-        description: 'Mengaktifkan penyesuaian tinggi otomatis berdasarkan panjang teks masukan.',
+        description: 'Enables dynamic height calculation matching input text content length.',
       },
     ],
   },
   'bento-grid': {
     title: 'Bento Grid',
-    description: 'Sistem grid kartu interaktif dengan visual elevation modern berbasis CSS Grid native.',
+    description: 'Interactive card grid system featuring modern elevation powered by native CSS Grid.',
     html: `<div class="ox-bento-grid">
   <div class="ox-bento-card ox-bento-col-2">
     <div class="ox-bento-content">
@@ -1071,13 +1071,13 @@ if (openBtn && overlay) {
         prop: 'class="ox-bento-grid"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Sistem CSS grid multi-kolom yang menyesuaikan tampilan layar desktop/mobile.',
+        description: 'Multi-column CSS grid system adapting seamlessly across desktop and mobile screens.',
       },
     ],
   },
   'border-beam': {
     title: 'Border Beam',
-    description: 'Efek berkas cahaya gradien dinamis yang mengitari border kartu dengan animasi CSS murni.',
+    description: 'Dynamic gradient light streak travelling along container borders using pure CSS motion.',
     html: `<div class="ox-beam-card">
   <div class="ox-border-beam" style="--size: 160px; --duration: 8s;"></div>
   <div class="ox-beam-inner">
@@ -1130,19 +1130,19 @@ if (openBtn && overlay) {
         prop: '--size',
         type: 'CSS Variable',
         default: '200px',
-        description: 'Panjang berkas cahaya dalam piksel.',
+        description: 'Length of the animated glowing light streak in pixels.',
       },
       {
         prop: '--duration',
         type: 'CSS Variable',
         default: '15s',
-        description: 'Waktu perputaran penuh berkas cahaya mengelilingi kartu.',
+        description: 'Total loop duration in seconds for a full perimeter rotation.',
       },
     ],
   },
   'shimmer-button': {
     title: 'Shimmer Button',
-    description: 'Tombol interaktif dengan efek pantulan cahaya ambient conic gradient yang berputar.',
+    description: 'Interactive button featuring a rotating ambient conic gradient shimmer effect.',
     html: `<button type="button" class="ox-shimmer-btn">
   <span class="ox-shimmer-spin"></span>
   <span class="ox-shimmer-content">
@@ -1206,13 +1206,13 @@ if (openBtn && overlay) {
         prop: 'class="ox-shimmer-spin"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Lapisan rotasi gradien kerucut berkecepatan 3 detik.',
+        description: 'Rotating conic gradient layer running on a 3-second loop.',
       },
     ],
   },
   marquee: {
     title: 'Animated Marquee',
-    description: 'Ticker horizontal berjalan tanpa jeda dengan akselerasi GPU dan jeda saat kursor diarahkan.',
+    description: 'Seamless horizontal ticker running on GPU acceleration with pause-on-hover capability.',
     html: `<div class="ox-marquee" data-pause-on-hover="true">
   <div class="ox-marquee-track">
     <div class="ox-marquee-item">HTML5</div>
@@ -1275,13 +1275,13 @@ if (openBtn && overlay) {
         prop: 'data-pause-on-hover="true"',
         type: 'Data Attribute',
         default: "'true'",
-        description: 'Menjeda animasi lintasan saat mouse pengguna melayang di atas ticker.',
+        description: 'Pauses the marquee ticker animation when hovering over the container.',
       },
     ],
   },
   meteors: {
     title: 'Meteors Effect',
-    description: 'Efek hujan bintang jatuh dengan garis ekor cahaya untuk background hero modern.',
+    description: 'Cosmic falling meteor effect with glowing tail streaks for modern hero backgrounds.',
     html: `<div class="ox-meteors-box" id="meteorsContainer">
   <span class="ox-meteor" style="top: 0; left: 15%; animation-delay: 0.2s;"></span>
   <span class="ox-meteor" style="top: 0; left: 45%; animation-delay: 0.6s;"></span>
@@ -1355,7 +1355,7 @@ initMeteors('#meteorsContainer', 15);`,
         prop: 'class="ox-meteor"',
         type: 'CSS Class',
         default: 'none',
-        description: 'Partikel meteor dengan rotasi 215 derajat dan ekor gradien transparan.',
+        description: 'Meteor particle with 215-degree rotation and transparent fading tail.',
       },
     ],
   },

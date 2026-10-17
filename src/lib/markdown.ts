@@ -85,7 +85,7 @@ export function renderMarkdown(markdown: string): string {
       },
       code({ text, lang }) {
         const highlighted = highlightCode(text, lang || 'html')
-        return `<div class="relative my-4 rounded-xl border border-zinc-800 bg-zinc-950 p-4 font-mono text-xs text-zinc-100 overflow-x-auto"><span class="absolute top-2 right-3 text-[10px] uppercase font-mono text-zinc-500">${lang || 'code'}</span><pre class="m-0 p-0 bg-transparent"><code>${highlighted}</code></pre></div>`
+        return `<div class="relative my-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-950 p-4 font-mono text-xs text-zinc-900 dark:text-zinc-100 overflow-x-auto"><span class="absolute top-2 right-3 text-[10px] uppercase font-mono text-zinc-500">${lang || 'code'}</span><pre class="m-0 p-0 bg-transparent"><code>${highlighted}</code></pre></div>`
       },
       codespan({ text }) {
         return `<code class="rounded bg-muted/80 px-1.5 py-0.5 font-mono text-xs text-foreground font-medium">${text}</code>`

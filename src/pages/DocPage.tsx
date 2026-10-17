@@ -29,7 +29,7 @@ export function DocPage() {
   const description =
     componentDemo?.description ||
     articleDoc?.description ||
-    'Dokumentasi teknis Ocenix UI.'
+    'Technical documentation and native API reference for Ocenix UI.'
   const badge = currentNav?.badge || articleDoc?.badge
 
   useSEO({
@@ -76,7 +76,7 @@ export function DocPage() {
               html={componentDemo.html}
               css={componentDemo.css}
               js={componentDemo.js}
-              description={`Pratinjau interaktif dan kode native (HTML, CSS, JS) komponen ${componentDemo.title}.`}
+              description={`Interactive preview and native code (HTML, CSS, JS) for ${componentDemo.title}.`}
             >
               {componentDemo.preview}
             </ComponentPreview>
@@ -87,13 +87,13 @@ export function DocPage() {
               Installation &amp; Integration
             </h2>
             <p className="text-sm text-muted-foreground">
-              Integrasikan stylesheet dan script native Ocenix UI ke dalam berkas HTML Anda melalui CDN:
+              Include the Ocenix UI stylesheet and native JavaScript directly into your HTML document via CDN:
             </p>
             <CodeBlock
               code={`<!-- Ocenix UI CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />
 
-<!-- Ocenix UI JavaScript (Opsional untuk interaktivitas) -->
+<!-- Ocenix UI JavaScript (Optional for interactive components) -->
 <script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>`}
               language="html"
               fileName="index.html"
@@ -105,7 +105,7 @@ export function DocPage() {
               Native HTML Structure
             </h2>
             <p className="text-sm text-muted-foreground">
-              Salin struktur markup HTML native berikut langsung ke template atau dokumen web Anda:
+              Copy the standard native HTML markup below directly into your template or web page:
             </p>
             <CodeBlock
               code={componentDemo.html}
@@ -119,7 +119,7 @@ export function DocPage() {
               Options &amp; Class Reference
             </h2>
             <p className="text-sm text-muted-foreground">
-              Daftar kelas CSS, atribut ARIA, dan opsi native yang tersedia:
+              Available CSS classes, ARIA attributes, and native options:
             </p>
             <PropsTable data={componentDemo.props} />
           </section>
@@ -129,7 +129,7 @@ export function DocPage() {
               Accessibility (a11y)
             </h2>
             <Callout type="tip" title="WAI-ARIA Standards">
-              Komponen {componentDemo.title} sepenuhnya mendukung navigasi keyboard (fokus visual, navigasi panah/tab, tombol escape) serta label screen reader otomatis.
+              The {componentDemo.title} component fully supports keyboard navigation (visible focus rings, arrow/tab key traversal, Escape dismiss) and automated screen reader announcements.
             </Callout>
           </section>
         </div>
@@ -141,24 +141,24 @@ export function DocPage() {
                 Quick Setup Steps (Full Native)
               </h2>
               <Steps>
-                <StepItem title="Sertakan CDN Stylesheet">
-                  Sisipkan link stylesheet Ocenix UI di dalam tag &lt;head&gt; dokumen HTML Anda:
+                <StepItem title="Include CDN Stylesheet">
+                  Add the Ocenix UI stylesheet link inside your HTML &lt;head&gt;:
                   <CodeBlock
                     code={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.css" />`}
                     language="html"
                     fileName="index.html"
                   />
                 </StepItem>
-                <StepItem title="Sertakan JavaScript Interaktif">
-                  Sisipkan script vanilla JS untuk komponen yang memerlukan interaksi (modal, tabs, switch, accordion):
+                <StepItem title="Include Interactive JavaScript">
+                  Add the vanilla JS script for interactive components (modal, tabs, switch, accordion):
                   <CodeBlock
                     code={`<script src="https://cdn.jsdelivr.net/npm/@ocenix/ui/dist/ocenix.min.js" defer></script>`}
                     language="html"
                     fileName="index.html"
                   />
                 </StepItem>
-                <StepItem title="Gunakan Elemen Native">
-                  Gunakan class semantik Ocenix pada elemen HTML native Anda tanpa perlu runtime tambahan:
+                <StepItem title="Use Native Elements">
+                  Apply semantic Ocenix utility and component classes to native HTML elements without any runtime build step:
                   <CodeBlock
                     code={`<button type="button" class="ox-btn ox-btn-primary">\n  Get Started\n</button>`}
                     language="html"
@@ -169,10 +169,9 @@ export function DocPage() {
             </div>
           ) : null}
 
-
           {componentKey === 'dark-mode' ? (
-            <Callout type="warning" title="Mitigasi Masalah Produksi: Zero-FOUC">
-              Pastikan Anda meletakkan script blocking sinkronus di dalam tag &lt;head&gt; pada file index.html agar browser langsung menerapkan class "dark" sebelum rendering React dimulai.
+            <Callout type="warning" title="Production Tip: Zero-FOUC Dark Mode">
+              Place a synchronous blocking script inside the &lt;head&gt; tag of your index.html so the browser immediately applies the "dark" class before initial page paint.
             </Callout>
           ) : null}
 
@@ -180,14 +179,14 @@ export function DocPage() {
         </div>
       ) : (
         <div className="space-y-6">
-          <Callout type="note" title="Dalam Pengembangan">
-            Halaman dokumentasi untuk {title} sedang dalam tahap penulisan lanjutan.
+          <Callout type="note" title="Under Construction">
+            Documentation for {title} is currently being prepared.
           </Callout>
           <div className="p-8 rounded-xl border border-dashed border-border bg-card/40 flex flex-col items-center justify-center text-center space-y-2">
             <Terminal className="h-8 w-8 text-muted-foreground" />
             <p className="text-sm font-medium">Coming Soon</p>
             <p className="text-xs text-muted-foreground">
-              Dokumentasi spesifik untuk rute ini akan tersedia pada pembaruan berikutnya.
+              Detailed guides and component specs for this route will be available in an upcoming release.
             </p>
           </div>
         </div>
@@ -195,3 +194,4 @@ export function DocPage() {
     </div>
   )
 }
+

@@ -39,10 +39,10 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
           </div>
           <div className="space-y-1">
             <h4 className="font-semibold text-sm">
-              {this.props.fallbackTitle || 'Gagal memuat pratinjau komponen'}
+              {this.props.fallbackTitle || 'Failed to load component preview'}
             </h4>
             <p className="text-xs text-muted-foreground max-w-md font-mono">
-              {this.state.error?.message || 'Terjadi kesalahan runtime yang tidak terduga.'}
+              {this.state.error?.message || 'An unexpected runtime error occurred.'}
             </p>
           </div>
           <Button
@@ -52,10 +52,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             className="text-xs gap-1.5 border-destructive/20 hover:bg-destructive/10"
           >
             <RotateCcw className="h-3.5 w-3.5" />
-            Coba Muat Ulang
+            Reload Preview
           </Button>
         </div>
       )
+
     }
 
     return this.props.children

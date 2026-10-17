@@ -69,8 +69,8 @@ export function LandingPage() {
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Arsitektur terstruktur berbasis standar web native (HTML, CSS, JS), aksesibilitas WAI-ARIA,
-            dan animasi modern untuk dokumentasi dan aplikasi web mutakhir tanpa ketergantungan runtime.
+            A modern, structured architecture built on native web standards (HTML, CSS, JS),
+            WAI-ARIA accessibility, and dynamic animations without framework lock-in.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -94,7 +94,6 @@ export function LandingPage() {
         </div>
       </section>
 
-
       <div className="border-b border-border bg-card/50 py-3 overflow-hidden">
         <Marquee pauseOnHover className="[--duration:30s]">
           {techLogos.map((tech) => (
@@ -115,7 +114,7 @@ export function LandingPage() {
             Design Token System &amp; Primitives
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
-            Semantic tokens yang terintegrasi penuh dengan Tailwind v4 dan Dark Mode Engine tanpa FOUC.
+            Semantic design tokens fully integrated with Tailwind v4 and zero-FOUC dark mode.
           </p>
         </div>
 
@@ -126,7 +125,7 @@ export function LandingPage() {
                 <Palette className="h-4 w-4 text-primary" />
                 Color Tokens
               </CardTitle>
-              <CardDescription>Palet semantik light &amp; dark</CardDescription>
+              <CardDescription>Semantic light &amp; dark palette</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="flex items-center justify-between text-xs">
@@ -245,17 +244,17 @@ export function LandingPage() {
             Magic Motion Architecture
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
-            Bento Grid dinamis dengan visual elevation dan transisi responsif.
+            Dynamic Bento Grid with modern visual elevation and fluid transitions.
           </p>
         </div>
 
         <BentoGrid>
           <BentoCard
             name="Zero-FOUC Dark Mode"
-            description="Inline synchronous script yang mencegah kedipan warna putih saat initial load pada perangkat pengguna."
+            description="Inline synchronous script preventing white flash during initial page load across client devices."
             icon={<Sparkles className="h-5 w-5" />}
             href="/docs/dark-mode"
-            cta="Pelajari Arsitektur"
+            cta="Learn Architecture"
             className="md:col-span-2"
             background={
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/20" />
@@ -263,10 +262,10 @@ export function LandingPage() {
           />
           <BentoCard
             name="Radix Accessibility"
-            description="Navigasi keyboard lengkap (Tab, Enter, Escape, Arrow keys) dan kontras warna WCAG AA standar industri."
+            description="Full keyboard navigation (Tab, Enter, Escape, Arrow keys) and industry-standard WCAG AA color contrast."
             icon={<Layers className="h-5 w-5" />}
             href="/docs/accessibility"
-            cta="Lihat Standar"
+            cta="View Standards"
             className="md:col-span-1"
             background={
               <div className="absolute inset-0 bg-radial from-primary/10 via-transparent to-transparent" />
@@ -274,18 +273,18 @@ export function LandingPage() {
           />
           <BentoCard
             name="Tailwind CSS v4 Engine"
-            description="Performa kompilasi super cepat berbasis CSS variables dan zero build configuration overhead."
+            description="Blazing fast compilation powered by pure CSS variables and zero complex build configuration."
             icon={<Code2 className="h-5 w-5" />}
             href="/docs/theming"
-            cta="Cek Konfigurasi"
+            cta="Explore Config"
             className="md:col-span-1"
           />
           <BentoCard
             name="Single Source of Truth Nav"
-            description="Struktur navigasi dokumentasi, sitemap, breadcrumb, dan paginasi digerakkan secara DRY oleh konfigurasi terpusat."
+            description="Documentation sidebar, sitemap, breadcrumbs, and pagination driven entirely by a single source of truth."
             icon={<Copy className="h-5 w-5" />}
             href="/docs/introduction"
-            cta="Buka Nav Tree"
+            cta="Explore Nav Tree"
             className="md:col-span-2"
             background={
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/15 via-transparent to-primary/5" />
@@ -293,6 +292,7 @@ export function LandingPage() {
           />
         </BentoGrid>
       </section>
+
     </>
   )
 }

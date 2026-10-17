@@ -97,7 +97,7 @@ function CommandMenuContent({ onClose }: { onClose: () => void }) {
               setSelectedIndex(0)
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Ketik nama komponen, dokumentasi, atau panduan..."
+            placeholder="Type a command or search documentation..."
             className="flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
           />
           {query ? (
@@ -120,9 +120,10 @@ function CommandMenuContent({ onClose }: { onClose: () => void }) {
         <div className="max-h-[380px] overflow-y-auto p-2" role="listbox">
           {results.length === 0 ? (
             <div className="p-8 text-center text-xs text-muted-foreground">
-              Tidak ada hasil dokumentasi ditemukan untuk "{query}".
+              No documentation results found for "{query}".
             </div>
           ) : (
+
             Object.entries(groupedResults).map(([category, items]) => (
               <div key={category} className="mb-3 last:mb-0">
                 <p className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -202,13 +203,13 @@ function CommandMenuContent({ onClose }: { onClose: () => void }) {
               <kbd className="rounded border border-border bg-background px-1 font-mono text-[9px]">
                 ↑↓
               </kbd>
-              Navigasi
+              Navigate
             </span>
             <span className="flex items-center gap-1">
               <kbd className="rounded border border-border bg-background px-1 font-mono text-[9px]">
                 ↵
               </kbd>
-              Buka
+              Open
             </span>
           </div>
 
@@ -221,16 +222,17 @@ function CommandMenuContent({ onClose }: { onClose: () => void }) {
               {resolvedTheme === 'dark' ? (
                 <>
                   <Sun className="h-3 w-3" />
-                  Tema Terang
+                  Light Mode
                 </>
               ) : (
                 <>
                   <Moon className="h-3 w-3" />
-                  Tema Gelap
+                  Dark Mode
                 </>
               )}
             </button>
           </div>
+
         </div>
       </div>
     </div>

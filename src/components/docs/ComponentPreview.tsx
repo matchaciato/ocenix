@@ -201,9 +201,10 @@ export function ComponentPreview({
                 viewport === 'mobile' && 'max-w-[375px] border-x border-dashed border-border py-4',
               )}
             >
-              <ErrorBoundary fallbackTitle={`Error pada demo ${name || 'komponen'}`}>
+              <ErrorBoundary fallbackTitle={`Error rendering ${name || 'component'} demo`}>
                 {children}
               </ErrorBoundary>
+
             </div>
           </div>
         ) : activeTab === 'html' ? (
